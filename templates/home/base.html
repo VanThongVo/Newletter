@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+</head>
+<div class="mess">{{ mess }}</div>
+<body>
+    <header>
+        <a href="{% url 'home:index' %} "><h1>Corona Virus Warning (COVID-19)</h1></a>
+        <p>Corona virus disease (COVID-19) is an infectious disease caused by a newly discovered strain of the corona virus.<br> Most people with COVID-19 will experience mild to moderate symptoms and recover without needing special treatment.</p>
+        <button class="btn_hd"><a href="{% url 'home:index' %}">Home</a>  </button>
+        <button class="btn_hd"><a href="#connectid">Connect Us</a> </button>
+    </header>
+{% block content %}
+{% endblock content %}
+    <footer>
+            <div class="end-footer">
+                <div class="one-fo">
+                    <a href="#">
+                        <img src="{% static 'images/logo.png' %}" alt="">
+
+                    </a>
+                    <br>
+                    <p>
+                        Contact us: <br> <br>
+                        Email: thong140800@gmail.com <br>
+                        Phone: 0378 368 378 <br>
+                        Address: Phuoc ly - Hoa minh - Lien Chieu - Da Nang
+                    </p>
+                    <br>
+                    COVID-19 &copy; 2020
+                </div>
+                <!-- Begin Mailchimp Signup Form -->
+                <div id="connectid" >
+                <form class="connect" action="{% url 'home:index' %}" method="post">
+                    {% csrf_token            %}
+                    <div class="connect">
+                        <h2>Subscribe to our Newsletter</h2>
+                    </div>
+                    <div class="connect">
+                        <input type="text" placeholder="Email address" name="email" required>
+                        <input type="text" placeholder="Full Name" name="fname" required>
+                        <label>
+                        <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+                        </label>
+                    </div>
+
+                    <div class="connect">
+                        <input type="submit" value="Subscribe">
+                    </div>
+
+                </form>
+            </div>
+                <!--End mc_embed_signup-->
+            </div>
+        </footer>
+    {#    </div>#}
+</body>
+</html>
